@@ -1,0 +1,78 @@
+Run by ./crackme30
+
+Replies with ko
+
+No symbols
+
+Entry Point : 0x400520
+Main function calls : 
+
+   0x40052f:	mov    r8,0x4006f0
+   0x400536:	mov    rcx,0x400700 <-- only one
+   0x40053d:	mov    rdi,0x400604
+   0x400544:	call   0x400500 <__libc_start_main@plt
+
+
+//Stopping the Ptrace
+ address of ptrace - 0x004006c2
+ 0x004006ca      7914           jns 0x4006e0
+
+
+Main Function --> 0x400604
+
+
+
+614: moves password into rdx
+61a: rcx is now 0xffffffff * 2
+61e: rdi also contains password
+621: searching for first byte equal to byte[rdi], eax so al is second byte
+627: rcx and 0xff...6 must not be equal
+629: ecx = 400808 
+630: esi = A (from rdx)
+633: edi = g (from rcx)
+63c: eax now has a \n 
+645: comapes eax to 0x50
+648: fails jump then goes back up
+630: esi = g
+633: edi = 9
+
+
+xor    esi,eax  eax = 0x50   
+
+
+0x400808 incremented 
+
+0x400808 = 0x67  xor 0x0   = 0x67 or g
+0x400809 = 0x39  xor 0xa   = 0x33 or 3
+0x40080a = 0x66  xor 0x14  = 0x72 or r
+0x40080b = 0x2e  xor 0x1e  = 0x30 or 0 
+0x40080c = 0x46  xor 0x28  = 0x6f or n
+0x40080d = 0x03  xor 0x32  = 0x31 or 1
+0x40080e = 0x51  xor 0x3c  = 0x6d or m
+0x40080f = 0x76  xor 0x46  = 0x30 or 0
+
+
+should be 0x66 but instead is 0x55 while rax is 0x14
+
+break * 0x400638 = where the xor is 
+
+adding 0xa everytime therefore
+
+
+password =  g3r0n1m0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

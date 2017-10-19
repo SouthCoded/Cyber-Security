@@ -1,0 +1,38 @@
+Sha1 hash - salted = 
+pbkdf2:sha1:1000$bTY1abU0$5503ae46ff1a45b14ff19d5a2ae08acf1d2aacde
+
+AES encryption used on a key of length 16 that is randomly generated
+
+Before ** is the IV and after is the cookie
+
+Here is how the cookie is encrypted
+
+auth = struct.pack('<I', len(user)) + struct.pack('<I', len(password)) + to_bytes(user) + to_bytes(password) + struct.pack('<I', admin)
+
+if user = admin
+
+struct.pack('<I', len(user))        = 5
+struct.pack('<I', len(password))    = 
+to_bytes(user)			    = [97, 100, 109, 105, 110] = to ASCII values
+to_bytes(password)                  =
+struct.pack('<I', admin)            = 1
+
+
+
+
+Cookies:
+
+Guest (no password) = 15702c687ef9bd5751465626547845**f5d93fa0cbd451797bf82133d0683e709fd1b70344c616b3e9ac0f64b1e8f735f4
+
+a3eb2793a83aca307517e3828da44b**3034abff57d642aa4961a012311770b0622411fc3822438ca175b609d34134e04f
+
+
+Changes every time - therefore dynamic
+
+Guest (a) = 
+1a9d885054cd612cda84ae19bda8a8**dba858ac50420f2fd93cb36552f3bcf2f7c4faca51537627a4b4f0e996d3522ba1
+
+Guest (aaa) = 
+9ef1ba1d3e8c0e9aecdadf03719ed8**24f90ed32709d88756a54856707a0c97ed6b249e7778131e0f37bbb728abf42935
+
+

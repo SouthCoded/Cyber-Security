@@ -1,0 +1,7 @@
+break * 0x400650
+break * 0x400746
+break * 0x400746
+break * 0x400768
+break * 0x40079f
+break * 0x400811
+

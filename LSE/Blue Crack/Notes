@@ -1,0 +1,161 @@
+//ALL PATCHED OUT
+166: (everything in the registers is wiped because new call) 
+168: compares eax with 0xfffff001
+16d: misses this jump -->0xf7e1c730 as eax is 0? then returns. The jump seems to be invalid
+
+66a: jump to 0x8048697
+
+697: moves eax,ds:0x8049bb0
+69c: tests eax with eax 
+68e: jump if equal  to 66c -  we are equal
+
+66c: moves 0 into esp
+673: calls time@plt? @ 0x80483c0 --> doesn't seem to do much
+685: eax is 305 and edx is z:EY which is 0x59453a7a
+689: jle fails and does not jump to 0x8048697
+692: programs exits
+
+---------------------------------------------------------------------------------------------------
+main is @ 0x080486c1
+
+712: checks if there are 2 arguements
+716: apparently it is fine, je and jumps to 746
+
+74c: eax contains the input
+
+751: calls String length which returns to 0xf7e30166 then comes back
+756: Eax contains length while EDX contains the input
+75a: Needs string length to be 21
+75f: Jumps to 787  //a good jump, edx now contains input, eax is the length
+
+787: Moves 0's into the stack at points 0x38 and 0x34
+797: unconditional jump to 806
+
+806: Moves 0 into eax
+80a: Compares eax and esp+0x3c, 0x3c
+80e: JL jump to 799 --> we jump
+
+799: Adds more values from the stack into edx and eax, moves 0 to edx (uncontrollable), and 0x2c   to eax which is apparently push ebp 
+7a1: edx = 0 and eax is push ebp, added together
+7a6: test al,al -- the result is 0x55 or 'U'
+7a8: je to 7bb which is skipped //this eventually goes back to 799, seems we want to take this, 
+but it seems this is suppose to fail for the first time...
+7aa: moves esp+0x38 which is 0 to edx
+7ae: moves esp+0x2c to eax
+7b2: adds eax and edx together again forming 'U' or 0x55
+7b4: moves values from esp added to edx and eax, eax = push ebp  edx = 0, added = push ebp
+7b7: a compare - eax - "U" compared to 0xff, fails
+7b9: jne to 7c2 //jumps to 801 which then might jump to 799....
+
+
+7c2: 0x38 added to edx, so edx is 0
+7c6: 0x2c added to eax, so push ebp
+7ca: added to eax
+7cc: byte from EDX taken this time
+7cf: ebp+0xc to eax, so eax = address
+7d2: adds four, so now eax is the input
+7d5: ecx is now inputs as well as eax
+7d7: eax is 0
+7db: eax back to inputs
+7dd: first character taken
+7e0: esp+0x34 moved to eax, eax is 0
+7e4: eax is 0xe2a8d634
+7e9: last byte taken so eax is 4
+7ec: xor eax and ecx, eax is 0x34, ecx is 0x41 = 0x75
+7ee: comapres dl,al 0x55 with 0x75, dl with al
+7f0: if equal jumps to 7fc //skipped, you want it to go back to 799
+7f2: moves 1 into esp+x30
+7fa: unconditional to 810
+
+810: compares - to esp 0x30
+815: jne to 83a, won't be equal
+
+83a: moves 0xb to 0x8, moves other values
+851: write is called
+856: eax is 0, ends
+
+--------------------------------------------------------------------------------------------------
+//New character is correct 'a'
+
+7ec: xor eax and ecx, eax is 0x34, ecx is 0x41 = 0x75
+7ee: comapres dl,al 0x55 with 0x75, dl with al
+7f0: if equal jumps to 7fc //jumped
+
+7fc: adds 0x1 to esp+0x34
+801: adds 0x1 to esp+0x38
+806: moves 0x1 to eax
+80a: compares esp+0x3c with eax which is 0x1
+80e: jl jump to 799
+
+799: moves 0x1 to edx
+79d: moves esp+0x2c to eax which is push ebp
+7a1: adds edx to eax which is now mov ebp,esp
+7a3: takes a byte of [eax] which is 0x89
+7a6: tests it with itself
+7a8: jumps to 7b //fails (jump if less than = jl)
+7aa: edx is now 0x1 because esp+0x38
+7ae: esp+0x2c is added to eax (which is push ebp)
+7b2: added together, so 0x8048551
+7b4: a byte is taken so (0x89)
+7b7: compares al with 0xff
+7b9: jumps if not equal to 7c2
+
+7c2: edx is esp+0x38 so 0x1
+7c6: eax is push ebp
+7ca: added is equal to mov ebp,esp
+7cc: takes byte of eax which is 0x89 and moves to edx
+7cf: eax is now ebp+0xc
+7d2: eax +4 is back to input
+7d5: moves byte of eax to ecx so ecx is now input
+7d7: moves esp+x34 to eax so eax is now 1
+7db: eax back to input minus the first character = eax
+7dd: first character taken ("B") this time as first of eax
+7e0: esp+0x34 moved to eax, eax is 1
+7e4: eax is 0x88e2a8d6
+7e9: last byte taken so eax is 0xd6
+7ec: xor eax and ecx, eax is 0xd6, ecx is 0x42 -- 0xd6 xor 0x89 =  5f
+7ee: comapres dl,al 0x89 with 0x94, dl with al //false
+7f0: if equal jumps to 7fc //skipped, you want it to go back to 799
+7f2: moves 1 into esp+x30
+7fa: unconditional to 810
+
+---------------------------------------------------------------------------------------------------
+Pattern Analysis:
+
+At break *  0x80487ec
+
+Xor EDX with EAX == character suppose to be there
+
+EDX| EAX | Flag
+55   34    61
+89   d6    5f
+e5   a8    4d
+83   e2    61
+ec   88    64    
+28   77    5f
+c7   aa    6d
+45   4     41
+f0   9e    6e
+c7   98    5f
+45   33    76
+f4   82    76
+eb   da    31
+20   54    74
+c7   8f    48
+44   1b    5f
+45   24    61
+4    5b    5f
+1    37    36
+8b   bb    30
+45   1d    58
+
+flag = a_Mad_mAn_vv1tH_a_60X
+
+
+//gdb-peda$ r ABCDEFGHIJKLMNOPQRSTU
+
+First character, xored with 0x34 should be 0x55 = 0x61
+r aBCDEFGHIJKLMNOPQRSTU
+
+
+

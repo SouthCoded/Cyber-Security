@@ -1,0 +1,40 @@
+
+Entry Point: 0x8048570
+Main: 0x08048912
+
+-- to access break at entry and then run, then break at execve --
+
+Execve call: 0x804880d
+
+Execve: 0xf7e2142c
+Execve command: 0xf7ea2f70
+
+User name: Input(19 characters)
+	System call : 0x804881a
+	Actual System call: 0x8048500
+
+Loop: 0x804880d
+
+2 Options:
+	1:Process authentication
+		Process: 0x80488fc
+		End of Process: 0x8048902
+		After fgets() : 0x804870b
+	2:Exit program
+		Exit:0x8048904
+
+
+
+Action: (doesn't seem to seg fault)
+
+If 1:
+	Enter Password: (27 spaces)
+		Password: 0x80486b7
+
+AAAABBBBCCCCDDDDEEEEFFFFGGGaaaa
+
+If 2:
+	Exits
+
+
+

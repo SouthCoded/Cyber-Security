@@ -1,0 +1,59 @@
+Natas Challenges
+
+natas0:natas0
+	- view page source
+
+natas1:gtVrDuiDfck831PqWsLEZy5gyDz1clto
+	- control-h or view-source: at the top
+
+natas2:ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
+	- view source, notice img with files/pixel.jpg
+	- go to files folder
+	- click users.txt
+
+natas3:sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+	- view source, see hint "not even google will see it"
+	- go to robots.txt
+	- click users.txt
+
+natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+	- used tamper for chrome
+	- edit "request" header to go from natas5
+	- "request" = from client to server, "response" = from server to client
+
+natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+	- not logged in  = not correct cookie
+	- editthiscookie, switch value from 0 to 1
+
+natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+	- view code, see part where it includes file
+	- browse to file, view source
+	- insert secret
+
+natas7:7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+	- view pagesource
+	- code path file and set equal to page
+
+natas8:DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+	- look at the script
+	- reverse the order of encryption and get flag
+
+natas9:W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+	- It runs a command to grep
+	- here; cat /etc/natas_webpass/natas10
+
+natas10:nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+	- since filtering is on, you use a wildcard since grep finds things 
+	  in multiple files
+	- .* /etc/natas_webpass/natas11 
+
+natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK 
+	- loads default cookie data
+	- if the requested color exists, and goes through filter
+	- sets the data to the color and saves the data
+	- ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw is the cookie
+	- check Natas11.php
+
+natas12:EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+	-
+	

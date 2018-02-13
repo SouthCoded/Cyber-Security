@@ -1,0 +1,31 @@
+aaa5a0
+
+takes numbers at adds 0x4 to them
+EzReverse
+
+adds 1 to first, two to second, three to third etc
+
+
+t3zkz
+
+p3zkv
+
+c3zki
+
+e3zkk
+
+g3zkm
+
+adds 3 to the fourth letter and comapres value against 0x7f?
+
+
+checks last variable is 0x6f after adding : last
+
+adds 0xe to that and checks next is : second from last
+
+subtracts 0xa and checks : third from last
+
+compares fourth from last with 0x35
+
+adds 3 and compares 5th from last
+

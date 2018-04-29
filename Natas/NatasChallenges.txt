@@ -55,5 +55,9 @@ natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
 	- check Natas11.php
 
 natas12:EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
-	-
+	- Add the shell.php script
+	- Launch the proxy to change the name
+	- Run commands in the url
+	
+natas13:jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY 
 	

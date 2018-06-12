@@ -1,0 +1,19 @@
+Radare 2 Cheatsheet
+
+rabin2 -I <file> - checks permissions on file
+
+rabin -R <file> - shows functions
+
+izz - gives strings and addresses
+
+iz~<string> - finds specific string
+
+aa - analyzes the binary
+
+afl - lists all function calls
+
+s - seeks to address
+
+pdf - prints disassembly
+
+/Rl <instruction> like pop rdi - finds places where the instruction is like ropper

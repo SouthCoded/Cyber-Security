@@ -1,0 +1,34 @@
+__libc_start_main(0x55d326b1d9a0, 1, 0x7fffc4ffd318, 0x55d326b1de90 <unfinished ...>
+printf("%s", "Input password: ")                                                                                        = 16
+fgets("ThisIsATriumph", 15, 0x7f56ccda7a00)                                                                             = 0x7fffc4ffd1b0
+putchar(10, 0x7fffc4ffd1b0, 0x7f56ccda98d0, 0x68706d7569725441)                                                         = 10
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0)                                                                                                                = 0
+sleep(0 <no return ...>
+--- SIGINT (Interrupt) ---
++++ killed by SIGINT +++

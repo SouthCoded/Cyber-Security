@@ -1,0 +1,5 @@
+Build with my new packer framework. Do you likes zeros in weird places? Try this!
+
+(Password does not contain 35C3_, prepend before submitting flag 35C3_${extracted_password}) Guest challenge by Qubasa.
+
+Difficulty estimate: medium

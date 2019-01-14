@@ -20,5 +20,5 @@ Compilation of scripts and notes I use during Capture the Flag Challenges
 - Pragyan 2018 (146th Place, used to learn more crypto) 
 - Sunshine CTF
 - Pico CTF 2018 
-- 35C3 (Used for RE and PHP)
+- 35C3 (Ranked 141, Used for RE and PHP)
 

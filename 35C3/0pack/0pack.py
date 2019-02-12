@@ -30,6 +30,8 @@ while start != 60:
 			start = 0
 		print(x,flag)
 
+#Break at __libc_start_main
+
 # 0x7ffff7a05b95 - Input Password - fgets
 
 # 0x555555566a19 - fgets

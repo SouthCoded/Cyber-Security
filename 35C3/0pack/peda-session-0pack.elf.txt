@@ -1,0 +1,4 @@
+break * __libc_start_main
+break * 0x7ffff7a05b95
+break * 0x555555566a19
+

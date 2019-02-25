@@ -19,7 +19,7 @@ Compilation of scripts and notes I use during Capture the Flag Challenges
 - Deloitte Final Challenge (University Team, 5th Place) 
 - Pragyan 2018 (146th Place, used to learn more crypto) 
 - Sunshine CTF
-- 35C4 (Ranked 141, Used for RE and PHP)
+- 35C3 (Ranked 141, Used for RE and PHP)
 
 ----2019----
 - Pico CTF 2018 

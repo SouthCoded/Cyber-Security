@@ -1,0 +1,10 @@
+We love puzzle and we put a small puzzle for you ..
+If you can't solve it study some math and come back again
+
+--------------------------------------------
+Challenge's URL : 
+http://blackfoxs.org/radar/puzzle
+
+
+
+radar{tricky_character_make_big_thing5} - 1e9 works

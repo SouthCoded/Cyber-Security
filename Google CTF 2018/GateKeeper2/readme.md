@@ -1,0 +1,1 @@
+This challenge was created by Gynvael Coldwind and is part of the Paged Out free magazine challenge. It is a modified version of Google 2018's challenge. 

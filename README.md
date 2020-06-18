@@ -23,6 +23,7 @@ Compilation of scripts and notes I use during Capture the Flag Challenges
 
 ----2019----
 - Pico CTF 2018 
+- 36c3 Junior CTF
 
 
 

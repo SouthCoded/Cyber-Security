@@ -25,5 +25,12 @@ Compilation of scripts and notes I use during Capture the Flag Challenges
 - Pico CTF 2018 
 - 36c3 Junior CTF
 
+----2020----
+- BurpSuite Web Academy
+
+----2021----
+- Lloyd's Register CTF Challenge
+
+
 
 

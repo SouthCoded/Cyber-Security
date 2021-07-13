@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-#define BUFSIZE 148
+#define BUFSIZE 512
 #define FLAGSIZE 128
 
 void vuln(char *buf){
@@ -26,9 +26,11 @@ int main(int argc, char **argv){
   puts("Enter your shellcode:");
   vuln(buf);
 
-  puts("Thanks! Executing now...");
+  puts("Thanks! Executing from a random location now...");
+
+  int offset = (rand() % 256) + 1;
   
-  ((void (*)())buf)();
+  ((void (*)())(buf+offset))();
 
 
   puts("Finishing Executing Shellcode. Exiting now...");

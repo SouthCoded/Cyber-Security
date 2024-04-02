@@ -35,4 +35,7 @@ Compilation of scripts and notes I use during Capture the Flag Challenges
 ----2023----
 - eksclustergames
 
+----2024----
+- k8s-lan-party-challenge
+
 
